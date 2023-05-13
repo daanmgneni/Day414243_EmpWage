@@ -1,4 +1,3 @@
-//UC7 RG
 console.log("Welcome to EmpWage Calculation Program in JS")
 //CONSTANTS
 const IS_FULL_TIME = 2;
@@ -18,13 +17,18 @@ let totalWorkingDays = 0;
 let totalEmpWage = 0;
 //Daily EmpWage in Array
 let dailyEmpWageArray = new Array();
+//Daily EmpWage in Map
+let dailyEmpWageMap = new Map();
 
 while(totalWorkingDays < MAX_WORKING_DAY_PER_MONTH && totalWorkingHrs < MAX_WORKING_HRS_PER_MONTH){
     dailyWorkingHrs = GetWorkingHrs();
     dailyEmpWageArray.push(GetDailyWage(dailyWorkingHrs));
     totalWorkingHrs += dailyWorkingHrs;
     totalWorkingDays++;
+    dailyEmpWageMap.set(totalWorkingDays,GetDailyWage(dailyWorkingHrs));
 }
+console.log(dailyEmpWageMap);
+console.log("UC8A:- Total EmpWage by Map: " +Array.from(dailyEmpWageMap.values()).reduce(TotalEmpWages,0))
 //UC7A
 function sum(dailyWage){
     totalEmpWage += dailyWage;
