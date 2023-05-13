@@ -33,4 +33,5 @@ function GetEmpWorkingHours(empCheck)
         default:
             return 0;
     }
-}
+    
+} 
